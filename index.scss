@@ -1,0 +1,13 @@
+$background-very-cold: #264653;
+$background-cold: #2A9D8F;
+$background-neutral: #E9C46A;
+$background-warm: #F4A261;
+$background-hot: #E76F51;
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: $background-very-cold;
+}
+
