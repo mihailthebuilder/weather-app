@@ -48,12 +48,24 @@ const getWeather = async (location) => {
   let response = await fetch(url);
   let responseData = await response.json();
 
+  let browserDate = new Date();
+
+  let dateLocal = new Date((responseData.dt+responseData.timezone+browserDate.getTimezoneOffset()*60)*1000);
+
+  let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  console.log(dateLocal.toTimeString());
+  let dateString = days[dateLocal.getDay()] + ', ' + dateLocal.toTimeString().slice(0,5);
+
+  console.log(dateLocal.getTimezoneOffset());
+
   return {
     'city': responseData.name,
     'country': responseData.sys.country,
     'temperature': responseData.main.temp,
     'description': responseData.weather[0].description,
-    'iconUrl': `http://openweathermap.org/img/wn/${responseData.weather[0].icon}@2x.png`
+    'iconUrl': `http://openweathermap.org/img/wn/${responseData.weather[0].icon}@2x.png`,
+    'dateTime': dateString
   };
 }
 
@@ -64,6 +76,7 @@ const update = async (location) => {
     let newColourScheme = COLOUR_SCHEME.filter(scheme=>scheme.max_temp>=weatherData.temperature && scheme.min_temp <= weatherData.temperature)[0];
 
     document.body.style.background = newColourScheme.background_color;
+    console.log(weatherData);
   }
   catch (error) {
     console.log(`Error: ${error}`);
