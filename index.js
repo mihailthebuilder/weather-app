@@ -65,3 +65,13 @@ const update = async (location) => {
 }
 
 update('Singapore');
+
+let button = document.querySelector('button');
+button.addEventListener('click',()=>{
+
+  button.classList.add('button-clicked');
+
+  setTimeout(() => {
+    button.classList.remove('button-clicked');
+  }, 200);
+})

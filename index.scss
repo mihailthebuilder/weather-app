@@ -69,4 +69,12 @@ main {
       }
     }
   }
+
+  .button-clicked {
+
+    background: $white; 
+    svg g {
+      fill: black;
+    }
+  }
 }

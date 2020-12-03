@@ -87,4 +87,12 @@ main {
 #search-bar button svg g {
   fill: #FFFFFF;
 }
+
+#search-bar .button-clicked {
+  background: #FFFFFF;
+}
+
+#search-bar .button-clicked svg g {
+  fill: black;
+}
 /*# sourceMappingURL=index.css.map */
