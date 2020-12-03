@@ -1,8 +1,6 @@
 $search-bar-font: 3rem;
-$dark-bg-primary: #FFFFFF;
-$dark-bg-secondary: #AEAEAE;
-$bright-bg-primary: #000000;
-$bright-bg-secondary: #6A6A6A;
+$white: #FFFFFF;
+$grey: #AEAEAE;
 
 .freezing-background {
   background-color: #264653;
@@ -41,13 +39,13 @@ main {
   input, button {
     background: transparent;
     border-style: solid;
-    border-color: #ffffff;
+    border-color: $white;
     border-radius: 0.3rem;
   }
 
   input:focus, input:hover, button:focus, button:hover {
     outline-style: none;
-    box-shadow: 0 0 1rem 0.05rem #ffffff;
+    box-shadow: 0 0 1rem 0.05rem $white;
   }
 
   input {
@@ -55,14 +53,7 @@ main {
     font-size: $search-bar-font;
     transition: 0.1s;
     margin-right: 1rem;
-  }
-
-  input.dark {
-    color: $dark-bg-primary;
-  }
-
-  input.bright {
-    color: $bright-bg-primary;
+    color: $white;
   }
 
   button {
@@ -72,6 +63,10 @@ main {
     svg {
       height: $search-bar-font;
       width: $search-bar-font;
+
+      g {
+        fill: $white;
+      }
     }
   }
 }

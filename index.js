@@ -2,32 +2,27 @@ const BACKGROUNDS = [
   {
     min_temp: -99,
     max_temp: -5,
-    background_class: 'freezing-background',
-    color_class: 'dark'
+    background_class: 'freezing-background'
   },
   {
     min_temp: -4,
     max_temp: 5,
-    background_class: 'cold-background',
-    color_class: 'dark'
+    background_class: 'cold-background'
   },
   {
     min_temp: 6,
     max_temp: 16,
-    background_class: 'neutral-background',
-    color_class: 'bright'
+    background_class: 'neutral-background'
   },
   {
     min_temp: 17,
     max_temp: 27,
-    background_class: 'warm-background',
-    color_class: 'bright'
+    background_class: 'warm-background'
   },
   {
     min_temp: 28,
     max_temp: 99,
-    background_class: 'hot-background',
-    color_class: 'dark'
+    background_class: 'hot-background'
   },
 ]
 
@@ -44,10 +39,7 @@ const getWeather = async (location) => {
 
   let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-  console.log(dateLocal.toTimeString());
   let dateString = days[dateLocal.getDay()] + ', ' + dateLocal.toTimeString().slice(0,5);
-
-  console.log(dateLocal.getTimezoneOffset());
 
   return {
     'city': responseData.name,
@@ -66,11 +58,10 @@ const update = async (location) => {
     let newColors = BACKGROUNDS.filter(elem=>elem.max_temp>=weatherData.temperature && elem.min_temp <= weatherData.temperature)[0];
 
     document.body.className = newColors.background_class;
-
   }
   catch (error) {
     console.log(`Error: ${error}`);
   }
 }
 
-update('London,CA');
+update('Singapore');

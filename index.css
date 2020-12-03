@@ -55,14 +55,14 @@ main {
 #search-bar input, #search-bar button {
   background: transparent;
   border-style: solid;
-  border-color: #ffffff;
+  border-color: #FFFFFF;
   border-radius: 0.3rem;
 }
 
 #search-bar input:focus, #search-bar input:hover, #search-bar button:focus, #search-bar button:hover {
   outline-style: none;
-  -webkit-box-shadow: 0 0 1rem 0.05rem #ffffff;
-          box-shadow: 0 0 1rem 0.05rem #ffffff;
+  -webkit-box-shadow: 0 0 1rem 0.05rem #FFFFFF;
+          box-shadow: 0 0 1rem 0.05rem #FFFFFF;
 }
 
 #search-bar input {
@@ -71,14 +71,7 @@ main {
   -webkit-transition: 0.1s;
   transition: 0.1s;
   margin-right: 1rem;
-}
-
-#search-bar input.dark {
   color: #FFFFFF;
-}
-
-#search-bar input.bright {
-  color: #000000;
 }
 
 #search-bar button {
@@ -89,5 +82,9 @@ main {
 #search-bar button svg {
   height: 3rem;
   width: 3rem;
+}
+
+#search-bar button svg g {
+  fill: #FFFFFF;
 }
 /*# sourceMappingURL=index.css.map */
