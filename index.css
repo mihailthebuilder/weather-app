@@ -1,3 +1,23 @@
+.freezing-background {
+  background-color: #264653;
+}
+
+.cold-background {
+  background-color: #2A9D8F;
+}
+
+.neutral-background {
+  background-color: #E9C46A;
+}
+
+.warm-background {
+  background-color: #F4A261;
+}
+
+.hot-background {
+  background-color: #E76F51;
+}
+
 body {
   overflow-x: hidden;
   margin: 0;
@@ -38,7 +58,6 @@ main {
   -webkit-transition: 0.1s;
   transition: 0.1s;
   margin-right: 1rem;
-  color: #ffffff;
 }
 
 #search-bar button {
@@ -49,10 +68,6 @@ main {
 #search-bar button svg {
   height: 3rem;
   width: 3rem;
-}
-
-#search-bar button svg g {
-  fill: #ffffff;
 }
 
 .search-style {

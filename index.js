@@ -1,43 +1,33 @@
-const COLOUR_SCHEME = [
+const BACKGROUNDS = [
   {
-    name: 'very_cold',
     min_temp: -99,
     max_temp: -5,
-    background_color: '#264653',
-    primary_font_color: '#FFFFFF',
-    secondary_font_color: '#AEAEAE'
+    background_class: 'freezing-background',
+    color_class: 'dark'
   },
   {
-    name: 'cold',
     min_temp: -4,
     max_temp: 5,
-    background_color: '#2A9D8F',
-    primary_font_color: '#FFFFFF',
-    secondary_font_color: '#AEAEAE'
+    background_class: 'cold-background',
+    color_class: 'dark'
   },
   {
-    name: 'neutral',
     min_temp: 6,
     max_temp: 16,
-    background_color: '#E9C46A',
-    primary_font_color: '#000000',
-    secondary_font_color: '#6A6A6A'
+    background_class: 'neutral-background',
+    color_class: 'bright'
   },
   {
-    name: 'warm',
     min_temp: 17,
     max_temp: 27,
-    background_color: '#F4A261',
-    primary_font_color: '#000000',
-    secondary_font_color: '#6A6A6A'
+    background_class: 'warm-background',
+    color_class: 'bright'
   },
   {
-    name: 'hot',
     min_temp: 28,
     max_temp: 99,
-    background_color: '#E76F51',
-    primary_font_color: '#FFFFFF',
-    secondary_font_color: '#AEAEAE'
+    background_class: 'hot-background',
+    color_class: 'dark'
   },
 ]
 
@@ -73,10 +63,10 @@ const update = async (location) => {
   try {
     let weatherData = await getWeather(location);
 
-    let newColourScheme = COLOUR_SCHEME.filter(scheme=>scheme.max_temp>=weatherData.temperature && scheme.min_temp <= weatherData.temperature)[0];
+    let newBgClass = BACKGROUNDS.filter(elem=>elem.max_temp>=weatherData.temperature && elem.min_temp <= weatherData.temperature)[0].background_class;
 
-    document.body.style.background = newColourScheme.background_color;
-    console.log(weatherData);
+    document.body.className = newBgClass;
+
   }
   catch (error) {
     console.log(`Error: ${error}`);

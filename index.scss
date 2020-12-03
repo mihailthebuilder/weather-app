@@ -1,4 +1,24 @@
 $search-bar-font: 3rem;
+$dark-bg-primary: #FFFFFF;
+$dark-bg-secondary: #AEAEAE;
+$bright-bg-primary: #000000;
+$bright-bg-secondary: #6A6A6A;
+
+.freezing-background {
+  background-color: #264653;
+}
+.cold-background {
+  background-color: #2A9D8F;
+}
+.neutral-background {
+  background-color: #E9C46A;
+}
+.warm-background {
+  background-color: #F4A261;
+}
+.hot-background {
+  background-color: #E76F51;
+}
 
 body {
   overflow-x: hidden;
@@ -23,7 +43,6 @@ main {
     font-size: $search-bar-font;
     transition: 0.1s;
     margin-right: 1rem;
-    color: #ffffff;
   }
 
 
@@ -34,10 +53,6 @@ main {
     svg {
       height: $search-bar-font;
       width: $search-bar-font;
-
-      g {
-        fill: #ffffff;
-      }
     }
   }
 }
