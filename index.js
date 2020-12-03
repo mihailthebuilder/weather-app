@@ -54,10 +54,13 @@ const getWeather = async (location) => {
 const update = async (location) => {
   try {
     let weatherData = await getWeather(location);
+    console.log(weatherData);
 
-    let newColors = BACKGROUNDS.filter(elem=>elem.max_temp>=weatherData.temperature && elem.min_temp <= weatherData.temperature)[0];
+    let temp = Math.round(weatherData.temperature);
+    let newColors = BACKGROUNDS.filter(elem=>elem.max_temp>=temp && elem.min_temp <= temp)[0];
 
     document.body.className = newColors.background_class;
+
   }
   catch (error) {
     console.log(`Error: ${error}`);
@@ -67,11 +70,14 @@ const update = async (location) => {
 update('Singapore');
 
 let button = document.querySelector('button');
+
 button.addEventListener('click',()=>{
 
   button.classList.add('button-clicked');
-
   setTimeout(() => {
     button.classList.remove('button-clicked');
   }, 200);
+
+  let input = document.querySelector('input').value;
+  update(input);
 })
