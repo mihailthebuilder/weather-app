@@ -63,9 +63,9 @@ const update = async (location) => {
   try {
     let weatherData = await getWeather(location);
 
-    let newBgClass = BACKGROUNDS.filter(elem=>elem.max_temp>=weatherData.temperature && elem.min_temp <= weatherData.temperature)[0].background_class;
+    let newColors = BACKGROUNDS.filter(elem=>elem.max_temp>=weatherData.temperature && elem.min_temp <= weatherData.temperature)[0];
 
-    document.body.className = newBgClass;
+    document.body.className = newColors.background_class;
 
   }
   catch (error) {
