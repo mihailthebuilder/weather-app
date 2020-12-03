@@ -21,22 +21,36 @@ main {
   input {
     padding: 1rem 1rem;
     font-size: $search-bar-font;
-    background: transparent;
-    border-style: solid;
-    border-color: #ffffff;
-    border-radius: 0.3rem;
     transition: 0.1s;
     margin-right: 1rem;
+    color: #ffffff;
   }
 
-  input:focus {
-    outline-style: none;
-    box-shadow: 0 0 1rem 0.05rem #ffffff;
-  }
 
-  svg {
-    height: $search-bar-font;
-    width: $search-bar-font;
+  button {
+    padding-left: 5%;
+    padding-right: 5%;
+
+    svg {
+      height: $search-bar-font;
+      width: $search-bar-font;
+
+      g {
+        fill: #ffffff;
+      }
+    }
   }
 }
 
+.search-style {
+  background: transparent;
+  border-style: solid;
+  border-color: #ffffff;
+  border-radius: 0.3rem;
+}
+
+
+.search-style:focus, .search-style:hover {
+  outline-style: none;
+  box-shadow: 0 0 1rem 0.05rem #ffffff;
+}

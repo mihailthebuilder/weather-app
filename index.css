@@ -35,23 +35,36 @@ main {
 #search-bar input {
   padding: 1rem 1rem;
   font-size: 3rem;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  margin-right: 1rem;
+  color: #ffffff;
+}
+
+#search-bar button {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+#search-bar button svg {
+  height: 3rem;
+  width: 3rem;
+}
+
+#search-bar button svg g {
+  fill: #ffffff;
+}
+
+.search-style {
   background: transparent;
   border-style: solid;
   border-color: #ffffff;
   border-radius: 0.3rem;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
-  margin-right: 1rem;
 }
 
-#search-bar input:focus {
+.search-style:focus, .search-style:hover {
   outline-style: none;
   -webkit-box-shadow: 0 0 1rem 0.05rem #ffffff;
           box-shadow: 0 0 1rem 0.05rem #ffffff;
-}
-
-#search-bar svg {
-  height: 3rem;
-  width: 3rem;
 }
 /*# sourceMappingURL=index.css.map */
