@@ -61,6 +61,11 @@ const update = async (location) => {
 
     document.body.className = newColors.background_class;
 
+    document.getElementById('city-name').innerText = weatherData.city+', '+weatherData.country;
+    document.getElementById('date-time').innerText = weatherData.dateTime;
+    document.getElementById('temperature').innerText = Math.round(weatherData.temperature)+'°';
+    document.getElementById('description').innerText = weatherData.description;
+    document.getElementById('weather-icon').src = weatherData.iconUrl;
   }
   catch (error) {
     console.log(`Error: ${error}`);
