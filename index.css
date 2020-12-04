@@ -181,7 +181,7 @@ main h3 {
     width: 2rem;
   }
   #weather-data {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

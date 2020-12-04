@@ -54,18 +54,21 @@ const getWeather = async (location) => {
 const update = async (location) => {
   try {
     let weatherData = await getWeather(location);
-    console.log(weatherData);
 
-    let temp = Math.round(weatherData.temperature);
-    let newColors = BACKGROUNDS.filter(elem=>elem.max_temp>=temp && elem.min_temp <= temp)[0];
+    let temp = weatherData.temperature;
+    let tempRound = Math.round(temp);
+    let newColors = BACKGROUNDS.filter(elem=>elem.max_temp>=tempRound && elem.min_temp <= tempRound)[0];
 
     document.body.className = newColors.background_class;
 
     document.getElementById('city-name').innerText = weatherData.city+', '+weatherData.country;
     document.getElementById('date-time').innerText = weatherData.dateTime;
-    document.getElementById('temperature').innerText = Math.round(weatherData.temperature)+'°';
     document.getElementById('description').innerText = weatherData.description.charAt(0).toUpperCase() + weatherData.description.slice(1);
     document.getElementById('weather-icon').src = weatherData.iconUrl;
+
+    let tempElem = document.getElementById('temperature');
+    tempElem.innerText = tempRound + '°';
+    tempElem.setAttribute('tempValue',temp);
   }
   catch (error) {
     console.log(`Error: ${error}`);
@@ -85,4 +88,23 @@ button.addEventListener('click',()=>{
 
   let input = document.querySelector('input').value;
   update(input);
+});
+
+let aLinked = document.querySelector('a[href]');
+
+aLinked.addEventListener('click',(event)=>{
+
+  document.querySelector('a:not([href])').setAttribute('href','#');
+  event.target.removeAttribute('href');
+
+  if (event.target.innerText == "F") {
+
+    let tempElem = document.getElementById('temperature');
+    
+    let celsTemp = parseFloat(tempElem.getAttribute('tempValue'));
+    
+    let fahrTemp = (celsTemp * 9/5) + 32;
+    tempElem.setAttribute('tempValue',fahrTemp);
+    tempElem.innerText = Math.round(fahrTemp);
+  }
 })
