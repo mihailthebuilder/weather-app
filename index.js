@@ -51,7 +51,7 @@ const getWeather = async (location) => {
   };
 }
 
-const update = async (location) => {
+const updateWeather = async (location) => {
   try {
     let weatherData = await getWeather(location);
 
@@ -75,7 +75,7 @@ const update = async (location) => {
   }
 }
 
-update('London');
+updateWeather('London');
 
 let button = document.querySelector('button');
 
@@ -87,7 +87,7 @@ button.addEventListener('click',()=>{
   }, 200);
 
   let input = document.querySelector('input').value;
-  update(input);
+  updateWeather(input);
 });
 
 let aLinked = document.querySelector('a[href]');
