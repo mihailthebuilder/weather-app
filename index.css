@@ -21,6 +21,7 @@
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: Arial;
 }
 
 body {
@@ -28,6 +29,7 @@ body {
   margin: 0;
   -webkit-transition: 1s;
   transition: 1s;
+  color: #FFFFFF;
 }
 
 main {
@@ -43,6 +45,16 @@ main {
       -ms-flex-align: center;
           align-items: center;
   padding: 10vh 10vw;
+}
+
+main input, main h1 {
+  font-size: 3rem;
+  margin-bottom: 0rem;
+}
+
+main h3 {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 #search-bar {
@@ -73,7 +85,6 @@ main {
 
 #search-bar input {
   padding: 1rem;
-  font-size: 3rem;
   -webkit-transition: 0.1s;
   transition: 0.1s;
   margin-right: 1rem;
@@ -114,6 +125,31 @@ main {
 
 #search-bar .button-clicked svg g {
   fill: black;
+}
+
+#data-container {
+  margin-top: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#data-container #weather-data > div, #data-container #weather-data > img {
+  display: inline-block;
+}
+
+#data-container #weather-data > img {
+  margin-left: 1.5rem;
 }
 
 @media (max-width: 576px) {

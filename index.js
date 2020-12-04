@@ -64,7 +64,7 @@ const update = async (location) => {
     document.getElementById('city-name').innerText = weatherData.city+', '+weatherData.country;
     document.getElementById('date-time').innerText = weatherData.dateTime;
     document.getElementById('temperature').innerText = Math.round(weatherData.temperature)+'°';
-    document.getElementById('description').innerText = weatherData.description;
+    document.getElementById('description').innerText = weatherData.description.charAt(0).toUpperCase() + weatherData.description.slice(1);
     document.getElementById('weather-icon').src = weatherData.iconUrl;
   }
   catch (error) {
