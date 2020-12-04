@@ -27,8 +27,8 @@
 body {
   overflow-x: hidden;
   margin: 0;
-  -webkit-transition: 1s;
-  transition: 1s;
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
   color: #FFFFFF;
 }
 
@@ -150,6 +150,10 @@ main h3 {
 
 #data-container #weather-data > img {
   margin-left: 1.5rem;
+}
+
+#data-container #weather-data a[href] {
+  color: blue;
 }
 
 @media (max-width: 576px) {

@@ -72,7 +72,7 @@ const update = async (location) => {
   }
 }
 
-update('Singapore');
+update('London');
 
 let button = document.querySelector('button');
 

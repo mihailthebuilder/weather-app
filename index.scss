@@ -27,7 +27,7 @@ $mobile-screen: 576px;
 body {
   overflow-x: hidden;
   margin: 0;
-  transition: 1s;
+  transition: background-color 1s;
   color: $white;
 }
 
@@ -114,6 +114,10 @@ main {
 
     >img {
       margin-left: 1.5rem;
+    }
+
+    a[href] {
+      color: blue;
     }
   }
 }
