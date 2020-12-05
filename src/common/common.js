@@ -36,7 +36,7 @@ const getWeather = async (location) => {
   };
 };
 
-const updateBackground = (temperature) => {
+const updateBackground = async (temperature) => {
   const BACKGROUNDS = [
     {
       min_temp: -99,
@@ -70,6 +70,11 @@ const updateBackground = (temperature) => {
   )[0];
 
   document.body.className = newColors.background_class;
+
+  setTimeout(() => {
+    console.log("test");
+    return true;
+  }, 5000);
 };
 
 export { getWeather, updateBackground };
