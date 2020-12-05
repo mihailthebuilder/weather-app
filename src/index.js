@@ -6,7 +6,7 @@ const pageLoad = async () => {
   const weatherData = await getWeather("London");
 
   await updateBackground(weatherData.temperature);
-  loadSearchBar();
+  await loadSearchBar();
 };
 
 pageLoad();
