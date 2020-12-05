@@ -73,7 +73,7 @@ const updateBackground = async (temperature) => {
 
   document.body.className = newColors.background_class;
 
-  await delay(1000);
+  await delay(1500);
 };
 
 export { getWeather, updateBackground };

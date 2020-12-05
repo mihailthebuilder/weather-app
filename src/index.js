@@ -1,6 +1,17 @@
 import "./index.scss";
 import { getWeather, updateBackground } from "./common/common.js";
+import { loadSearchBar } from "./components/search_bar/search_bar.js";
 
+const pageLoad = async () => {
+  const weatherData = await getWeather("London");
+
+  await updateBackground(weatherData.temperature);
+  loadSearchBar();
+};
+
+pageLoad();
+
+/*
 const updateWeather = async (location) => {
   try {
     let weatherData = await getWeather(location);
@@ -56,3 +67,4 @@ aLinked.addEventListener("click", (event) => {
     tempElem.innerText = Math.round(fahrTemp);
   }
 });
+*/
