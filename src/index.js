@@ -8,7 +8,7 @@ const pageLoad = async () => {
 
   await updateBackground(weatherData.temperature);
   await loadSearchBar();
-  loadWeatherTable();
+  loadWeatherTable(weatherData);
 };
 
 pageLoad();
