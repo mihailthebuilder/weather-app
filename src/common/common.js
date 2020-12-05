@@ -35,3 +35,41 @@ const getWeather = async (location) => {
     dateTime: dateString,
   };
 };
+
+const updateBackground = (temperature) => {
+  const BACKGROUNDS = [
+    {
+      min_temp: -99,
+      max_temp: -5,
+      background_class: "freezing-background",
+    },
+    {
+      min_temp: -5,
+      max_temp: 5,
+      background_class: "cold-background",
+    },
+    {
+      min_temp: 5,
+      max_temp: 16,
+      background_class: "neutral-background",
+    },
+    {
+      min_temp: 16,
+      max_temp: 23,
+      background_class: "warm-background",
+    },
+    {
+      min_temp: 23,
+      max_temp: 99,
+      background_class: "hot-background",
+    },
+  ];
+
+  let newColors = BACKGROUNDS.filter(
+    (elem) => elem.max_temp > temperature && elem.min_temp <= temperature
+  )[0];
+
+  document.body.className = newColors.background_class;
+};
+
+export { getWeather, updateBackground };

@@ -1,33 +1,5 @@
 import "./index.scss";
-import { getWeather } from "./common/common.js";
-
-const BACKGROUNDS = [
-  {
-    min_temp: -99,
-    max_temp: -5,
-    background_class: "freezing-background",
-  },
-  {
-    min_temp: -4,
-    max_temp: 5,
-    background_class: "cold-background",
-  },
-  {
-    min_temp: 6,
-    max_temp: 16,
-    background_class: "neutral-background",
-  },
-  {
-    min_temp: 17,
-    max_temp: 27,
-    background_class: "warm-background",
-  },
-  {
-    min_temp: 28,
-    max_temp: 99,
-    background_class: "hot-background",
-  },
-];
+import { getWeather, updateBackground } from "./common/common.js";
 
 const updateWeather = async (location) => {
   try {
@@ -35,11 +7,8 @@ const updateWeather = async (location) => {
 
     let temp = weatherData.temperature;
     let tempRound = Math.round(temp);
-    let newColors = BACKGROUNDS.filter(
-      (elem) => elem.max_temp >= tempRound && elem.min_temp <= tempRound
-    )[0];
 
-    document.body.className = newColors.background_class;
+    await updateBackground(temp);
 
     document.getElementById("city-name").innerText =
       weatherData.city + ", " + weatherData.country;
