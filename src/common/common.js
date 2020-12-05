@@ -1,3 +1,5 @@
+const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+
 const getWeather = async (location) => {
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=7986a26ff47f7262c74542709f87e5e7&units=metric`;
 
@@ -71,10 +73,7 @@ const updateBackground = async (temperature) => {
 
   document.body.className = newColors.background_class;
 
-  setTimeout(() => {
-    console.log("test");
-    return true;
-  }, 5000);
+  await delay(1000);
 };
 
 export { getWeather, updateBackground };
