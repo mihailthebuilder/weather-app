@@ -26,7 +26,7 @@ const loadSearchBar = async () => {
   //setTimeout needs to be made so that the query is put in the queue, thus waiting for the other async things to finish first (e.g. getWeatherData & updateBackground)
   setTimeout(() => {
     document.getElementById("search-bar").className = "visible";
-  }, 0);
+  }, 100);
 
   await delay(550);
 };
