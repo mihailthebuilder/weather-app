@@ -34,7 +34,7 @@ const getWeather = async (location) => {
       country: responseData.sys.country,
       temperature: responseData.main.temp,
       description: responseData.weather[0].description,
-      iconUrl: `http://openweathermap.org/img/wn/${responseData.weather[0].icon}@2x.png`,
+      iconUrl: `https://openweathermap.org/img/wn/${responseData.weather[0].icon}@2x.png`,
       dateTime: dateString,
     };
   } catch (error) {
