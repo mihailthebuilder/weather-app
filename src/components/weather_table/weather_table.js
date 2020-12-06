@@ -28,4 +28,8 @@ const loadWeatherTable = (weatherData) => {
   }, 100);
 };
 
-export { loadWeatherTable };
+const removeWeatherTable = () => {
+  document.getElementById("data-container").remove();
+};
+
+export { loadWeatherTable, removeWeatherTable };
