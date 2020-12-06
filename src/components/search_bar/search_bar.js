@@ -12,11 +12,16 @@ const loadSearchBar = async () => {
 
   document.querySelector("form").addEventListener("submit", async (event) => {
     event.preventDefault();
-    removeWeatherTable();
 
     let weatherData = await getWeather(document.querySelector("input").value);
-    loadWeatherTable(weatherData);
-    updateBackground(weatherData.temperature);
+
+    if (weatherData === false) {
+      alert("Please input a valid city");
+    } else {
+      loadWeatherTable(weatherData);
+      updateBackground(weatherData.temperature);
+      removeWeatherTable();
+    }
   });
   //setTimeout needs to be made so that the query is put in the queue, thus waiting for the other async things to finish first (e.g. getWeatherData & updateBackground)
   setTimeout(() => {
