@@ -10,7 +10,7 @@ const loadSearchBar = async () => {
     document.getElementById("search-bar").className = "visible";
   }, 0);
 
-  await delay(1000);
+  await delay(550);
 };
 
 export { loadSearchBar };
