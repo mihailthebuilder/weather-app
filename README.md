@@ -158,7 +158,7 @@ In this case, only the background color and the weather data get re-rendered usi
 
 I had another look at the project a while after I initially completed it, and I realised that the way I set up the animations is sub-optimal. There will be some occasions where some components will jump into visibility without the fading effect.
 
-The reason for this is that there is no `Promise` chain linking the completion of the search bar, background color and weather data rendering. Instead, I had placed time delays that cover usual load times for the elements. This becomes clearer when you place the `loadSearchBar` function in [search_bar.js](./src/components/search_bar.js) next to `pageLoad` function in [index.js](./src/index.js):
+The reason for this is that there is no `Promise` chain linking the completion of the search bar, background color and weather data rendering. Instead, I had placed time delays that cover usual load times for the elements. This becomes clearer when you place the `loadSearchBar` function in [search_bar.js](./src/components/earch_bar/search_bar.js) next to `pageLoad` function in [index.js](./src/index.js):
 
 ```js
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -186,6 +186,43 @@ const pageLoad = async (location) => {
 
 I built a more robust fading animation using `async/await` in [this project](https://github.com/mihailthebuilder/personal-site).
 
-### Responsive design
+### Celsius / Fahrenheit converter
 
-![responsive](./demo/responsive.gif)
+The temperature measurement which is **not** currently used is wrapped inside a clickable element that, when clicked, converts the temperature to that unit of measurement.
+![converter](./demo/converter.gif)
+
+The `convertTemp` function in [weather_table.js](./src/components/weather_table/weather_table.js) does the conversion and re-rendering:
+
+```js
+const convertTemp = (clickedElem) => {
+  //get the original temperature from what's rendered on the HTML
+  let tempElem = document.getElementById("temperature");
+  let originalTemp = parseFloat(tempElem.getAttribute("tempValue"));
+
+  //calculate the new temperature
+  let newTemp = 0;
+
+  if (clickedElem.innerText == "F") {
+    newTemp = (originalTemp * 9) / 5 + 32;
+  } else {
+    newTemp = ((originalTemp - 32) * 5) / 9;
+  }
+
+  tempElem.setAttribute("tempValue", newTemp);
+  tempElem.innerText = Math.round(newTemp) + "°";
+
+  //place the attribute conversion trigger on the old unit of measurement
+  let newConvertButton = document.querySelector("a:not([href])");
+  newConvertButton.setAttribute("href", "#");
+  newConvertButton.addEventListener("click", (event) => {
+    convertTemp(event.target);
+  });
+
+  //remove the trigger for the new element
+  let clickedElemReplacement = document.createElement("a");
+  clickedElemReplacement.innerText = clickedElem.innerText;
+  clickedElem.replaceWith(clickedElemReplacement);
+};
+```
+
+I felt it would be a better design if I didn't query the Open Weather Map API for a simple temperature conversion.
