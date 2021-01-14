@@ -159,7 +159,7 @@ In this case, only the background color and the weather data get re-rendered usi
 
 I had another look at the project a while after I initially completed it, and I realised that the way I set up the animations is sub-optimal. There will be some occasions where some components will jump into visibility without the fading effect.
 
-The reason for this is that there is no `Promise` chain linking the completion of the search bar, background color and weather data rendering. Instead, I had placed time delays that cover usual load times for the elements. This becomes clearer when you place the `loadSearchBar` function in [search_bar.js](./src/components/earch_bar/search_bar.js) next to `pageLoad` function in [index.js](./src/index.js):
+The reason for this is that there is no `Promise` chain linking the completion of the search bar, background color and weather data rendering. Instead, I had placed time delays that cover usual load times for the elements. This becomes clearer when you place the `loadSearchBar` function in [search_bar.js](./src/components/search_bar/search_bar.js) next to `pageLoad` function in [index.js](./src/index.js):
 
 ```js
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
