@@ -150,6 +150,7 @@ const BACKGROUNDS = [
 ```
 
 The different colors can be seen when loading cities with different temperatures, which is the second animation scenario:
+
 ![colors](./demo/colors.gif)
 
 In this case, only the background color and the weather data get re-rendered using a fading effect.
@@ -189,6 +190,7 @@ I built a more robust fading animation using `async/await` in [this project](htt
 ### Celsius / Fahrenheit converter
 
 The temperature measurement which is **not** currently used is wrapped inside a clickable element that, when clicked, converts the temperature to that unit of measurement.
+
 ![converter](./demo/converter.gif)
 
 The `convertTemp` function in [weather_table.js](./src/components/weather_table/weather_table.js) does the conversion and re-rendering:
