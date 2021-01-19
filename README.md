@@ -1,3 +1,11 @@
+- [Weather App](#weather-app)
+  - [Overview](#overview)
+  - [Highlights](#highlights)
+    - [Weather API](#weather-api)
+    - [Animations](#animations)
+      - [Sub-optimal setup](#sub-optimal-setup)
+    - [Celsius / Fahrenheit converter](#celsius--fahrenheit-converter)
+
 # Weather App
 
 ## Overview
